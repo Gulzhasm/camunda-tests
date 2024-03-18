@@ -1,0 +1,13 @@
+{
+  "FileForAnalysis": {
+    "id": "https://fms-qa.lionbridge.com/api/v1/download/container/7a7f9e8f-233d-402c-b5c0-2b70602429a1/folder/3d386db5-09c8-42e8-9e01-53b95b1262ca/file/f959ba87-2a68-4764-ae1f-c61d6fe75a19"
+  },
+  "twConfig": {
+    "translationMemoryId": 10893137,
+    "twInstance": "https://tw1-staging.translationworkspace.com/",
+    "userId": 252191
+  },
+  "sourceLanguage": "en-us",
+  "targetLanguages": ["fr-fr", "de-de"],
+  "operation": "analysis"
+}

@@ -1,0 +1,13 @@
+{
+  "sourceFile": {
+    "id": "https://fms-qa.lionbridge.com/api/v1/download/container/7a7f9e8f-233d-402c-b5c0-2b70602429a1/folder/3d386db5-09c8-42e8-9e01-53b95b1262ca/file/0a412885-30fb-4f5b-910a-a8e7cb1f4b2d/sastoken/c3Y9MjAyMy0wOC0wMyZzdD0yMDI0LTAyLTE1VDA4JTNBMjMlM0EzNFomc2U9MjAyNC0wMi0xNVQxNCUzQTI1JTNBMzRaJnNyPWImc3A9ciZzaWc9U2ZEOFMyZ2FhTkdrT1RyViUyQjJzQVdkYnI1TldCNkpDV2JCQkZMT1ZERUlZJTNE",
+    "filterType": "docx2tag"
+  },
+  "sourceLanguage": "en-us",
+  "twConfig": {
+    "translationMemoryId": 10893137,
+    "twInstance": "https://tw1-staging.translationworkspace.com/",
+    "userId": 252191
+  },
+  "operation": "convert"
+}

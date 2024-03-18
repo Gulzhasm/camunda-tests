@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0vj9l3y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="24fdc40" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+    <bpmn:process id="Process_FileTypeDetection" name="File Type Detection Process" isExecutable="true">
+        <bpmn:startEvent id="StartEvent_1">
+            <bpmn:outgoing>Flow_18f9d2e</bpmn:outgoing>
+        </bpmn:startEvent>
+        <bpmn:serviceTask id="Activity_1klaaru" name="Detect File Type">
+            <bpmn:extensionElements>
+                <zeebe:taskDefinition type="file-type-detection-worker" />
+            </bpmn:extensionElements>
+            <bpmn:incoming>Flow_18f9d2e</bpmn:incoming>
+            <bpmn:outgoing>Flow_0lzpd3r</bpmn:outgoing>
+        </bpmn:serviceTask>
+        <bpmn:intermediateCatchEvent id="Event_0fx9nnh" name="File Type Detected Message">
+            <bpmn:incoming>Flow_0lzpd3r</bpmn:incoming>
+            <bpmn:outgoing>Flow_12qznoy</bpmn:outgoing>
+            <bpmn:messageEventDefinition id="MessageEventDefinition_0ctniwt" messageRef="Message_0ofl0qt" />
+        </bpmn:intermediateCatchEvent>
+        <bpmn:sequenceFlow id="Flow_18f9d2e" sourceRef="StartEvent_1" targetRef="Activity_1klaaru" />
+        <bpmn:sequenceFlow id="Flow_0lzpd3r" sourceRef="Activity_1klaaru" targetRef="Event_0fx9nnh" />
+        <bpmn:endEvent id="Event_0oxydzr">
+            <bpmn:incoming>Flow_12qznoy</bpmn:incoming>
+        </bpmn:endEvent>
+        <bpmn:sequenceFlow id="Flow_12qznoy" sourceRef="Event_0fx9nnh" targetRef="Event_0oxydzr" />
+    </bpmn:process>
+    <bpmn:message id="Message_0ofl0qt" name="FileTypeDetectedMessage">
+        <bpmn:extensionElements>
+            <zeebe:subscription correlationKey="=fileTypeDetectionJobId" />
+        </bpmn:extensionElements>
+    </bpmn:message>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+        <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_FileTypeDetection">
+            <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+                <dc:Bounds x="179" y="99" width="36" height="36" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Activity_1klaaru_di" bpmnElement="Activity_1klaaru">
+                <dc:Bounds x="330" y="77" width="100" height="80" />
+                <bpmndi:BPMNLabel />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0fx9nnh_di" bpmnElement="Event_0fx9nnh">
+                <dc:Bounds x="502" y="99" width="36" height="36" />
+                <bpmndi:BPMNLabel>
+                    <dc:Bounds x="498" y="142" width="45" height="40" />
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape id="Event_0oxydzr_di" bpmnElement="Event_0oxydzr">
+                <dc:Bounds x="632" y="99" width="36" height="36" />
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge id="Flow_18f9d2e_di" bpmnElement="Flow_18f9d2e">
+                <di:waypoint x="215" y="117" />
+                <di:waypoint x="330" y="117" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_0lzpd3r_di" bpmnElement="Flow_0lzpd3r">
+                <di:waypoint x="430" y="117" />
+                <di:waypoint x="502" y="117" />
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge id="Flow_12qznoy_di" bpmnElement="Flow_12qznoy">
+                <di:waypoint x="538" y="117" />
+                <di:waypoint x="632" y="117" />
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</bpmn:definitions>
